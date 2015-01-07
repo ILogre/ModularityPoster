@@ -1,0 +1,130 @@
+
+\documentclass{acm_proc_article-sp}
+
+\begin{document}
+
+\title{Composition challenges for sensor data visualization}
+%\subtitle{}
+
+\numberofauthors{4}
+\author{
+% 1st. author
+\alignauthor Ivan Logre\\
+       \affaddr{Univ. Nice Sophia Antipolis}\\
+       \affaddr{CNRS, I3S, UMR 7271}\\
+       \affaddr{06900 Sophia Antipolis}\\
+       \email{logre@i3s.unice.fr}
+% 2nd. author
+\alignauthor S{\'e}bastien Mosser\\
+       \affaddr{Univ. Nice Sophia Antipolis}\\
+       \affaddr{CNRS, I3S, UMR 7271}\\
+       \affaddr{06900 Sophia Antipolis}\\
+       \email{mosser@i3s.unice.fr}
+\and
+% 3rd. author
+\alignauthor Philippe Collet\\
+       \affaddr{Univ. Nice Sophia Antipolis}\\
+       \affaddr{CNRS, I3S, UMR 7271}\\
+       \affaddr{06900 Sophia Antipolis}\\
+       \email{collet@i3s.unice.fr}
+% 4th. author
+\alignauthor Michel Riveill\\
+       \affaddr{Univ. Nice Sophia Antipolis}\\
+       \affaddr{CNRS, I3S, UMR 7271}\\
+       \affaddr{06900 Sophia Antipolis}\\
+       \email{riveill@i3s.unice.fr}
+}
+
+\date{06 January 2015}
+
+\maketitle
+\begin{abstract}
+This paper provides a overview of the sensor data visualization requirements in
+terms of software engineering. The first chapter defines our context of work
+through a short definition of this field, a clarification about the aim and the
+efforts to achieve it and several exiting way to implement a visualization solution.
+The second chapter raises the challenges relatively to software engineering,
+detailing properties to observe while contributing to this particular field.
+Then, the third chapter briefly offers some perspectives to tackle those challenges.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\terms{Theory}
+
+\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+
+\section{Introduction}
+Introduction
+
+\section{Sensor data visualization}
+Sentence to introduce this chapter
+
+\subsection{What is sensor data visualization ?}
+Definition of sensor data visualization.
+		Data visualization through dashboards (def)
+		What kind of visualizations ?
+		For what kind of data ?
+		For what purposes ?
+
+\subsection{How to achieve it ?}
+Abstract description of the task to perform
+Lots of methodologies, but need to chose visualizations to apply to refined data sets in order to achieve some final goal
+		-> several challenges
+		define what is the information the dashboard should help understanding
+		prepare data to be visualize
+		chose visualization for each group of data
+		fill the visualization with the well formatted data set
+		arrange the visualisations into a (multiple) dashboard
+		audit the dashboard according to the initial motivation
+
+\subsection{How to implement it}
+		Those challenges refer to three different domains :
+			Requirement Engineering
+			Data traitement
+			Dashboard design
+		Existing : SQL...
+		One other way to tackle it is to design one DSL per domain
+This way, one, when in charge of a given domain, may deal with a language
+specifically designed for his task, without being polluted by others
+vocabulary or domain constraints.
+%/!\ à traiter par domaine ou par "démarche"
+
+\section{Properties to satisfy and associated challenges}
+Sentence to introduce this chapter
+
+\subsection{Evolutivity}
+Data visualization is a growing, fast evolving field, as well as requirement engineering is an active research field offering new way to capture needs.
+For those reasons, their respective DSL will have to evolve in time, the composition should therefore take this fact into consideration to ease the evolutivity of the whole composed dashboard design framework.
+
+\subsection{Isolation}
+\subsection{Low coupling}
+\subsection{Integrity}
+
+\section{Actionable insights}
+\subsection{DSL composition}
+		Aggregation
+		Fusion/Merge
+		Integration
+
+
+
+%\end{document}  % This is where a 'short' article might terminate
+
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+\end{document}
