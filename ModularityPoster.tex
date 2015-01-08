@@ -104,17 +104,28 @@ five values per category, and the number of category should be limited according
 to the screen size so that the user can still distinguish each bar from the others.
 
 % For what kind of data ?
-Raw data produce by sensors are essentially timed values. The type of the value
-(eg. string, numerical, ...) and the unit of measurement in which it is expressed
-have an influence on the suitable possibilities of visualization. For example,
-given a window status sensor emitting either "opened" or "close" every minute,
-a pie chart would not be relevant.
-% Physical sensor / virtual
-
-% Data composition
-
+Raw data produce by physical sensors are essentially timed values. The type of
+the value (eg. string, numerical, ...) and the unit of measurement in which it
+is expressed have an influence on the suitable possibilities of visualization.
+For example, given a window status sensor emitting either "opened" or "close"
+every minute, the use of a pie chart would not be relevant. On the other hand,
+knowing that the values are temperature measure may lead to a continuous representation
+(e.g. line chart) instead of a discrete one (e.g. a bar chart), or even to a specialized
+widget for this kind of data.
+% Virtual sensor & Data composition
+Data can also be the result of a calculation, which can be as simple as the transformation
+of an electrical tension to a temperature, or a more complex one such as a composition
+of several dataset to infer a new one, for example ??? //todo
 
 % For what purposes ?
+The intention pursued in the dashboard construction is directly linked to design
+choices and to the selection visualization among the amount of possibilities available.
+Indeed, two different widgets, fed with the exact same data, may highlight specific
+aspect of it and lead to different domains of interpretation. For example,
+the use of a line chart implicitly infer the impression of continuity and so leads
+to focus the interpretation on the variations in the values while, in a other hand,
+using a bar chart will result in an analysis of the comparison between several values
+for the same category.
 
 \subsection{How to achieve it ?}
 Abstract description of the task to perform
