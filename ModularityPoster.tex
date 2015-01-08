@@ -148,6 +148,9 @@ Those tasks refer to three different domains :\\
 Requirement Engineering \iitem{a} \& \iitem{f}\\
 Data treatment \iitem{b} \& \iitem{d}\\
 Dashboard design \iitem{c} \& \iitem{e}\\
+The separation of the whole problem in domain specific sub-part aim to simplify
+the resolution of each domain challenge and to allow the contribution of specialist
+for a domain specific problem without disturbance from the other part noise.
 % existing solution
 One could use existing solutions to implement each of those tasks, for example
 using SQL would be a suitable choice to store and refine sensor data, IFML to
@@ -172,11 +175,24 @@ composition should therefore take this fact into consideration to ease the
 evolutivity of the whole composed dashboard design framework.
 
 \subsection{Isolation}
+Each domain expert (i.e. user of a solution specific to a domain) should be able to
+work in isolation from the other domains. This means that one can always contribute
+in her own domain, to improve her contribution, and being able to check that
+this evolution is consistent in this domain, even if the other domains are in
+an unstable or incoherent state.
+
 \subsection{Low coupling}
+The number of hypothesis made in a domain implementation to the others should be
+as small as possible. In addition to be a good software development practice,
+this criteria eases the replacement of solution by an other one, e.g. of the
+data management by a visualization resource DSL.
+									%%% to complete
+
 \subsection{Integrity}
 
 \section{Actionable insights}
 \subsection{DSL composition}
+
 		Aggregation
 		Fusion/Merge
 		Integration
