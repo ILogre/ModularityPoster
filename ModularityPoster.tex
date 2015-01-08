@@ -1,6 +1,8 @@
 \documentclass{acm_proc_article-sp}
+\usepackage{seb}
 
 \begin{document}
+
 
 \title{Composition challenges for sensor data visualization}
 %\subtitle{}
@@ -69,6 +71,9 @@ through dashboards.
 Stephen Few define a dashboard as "a visual display of the most important
 information needed to achieve one or more objectives; consolidated and arranged
 on a single screen so the information can be monitored at a glance"\cite{few:dashboard}
+In this paper, we will discuss about multiple dashboards, i.e. succession of screens,
+in order to include in our study the sensor data rendering organised in separate unit
+of visualization.
 
 % What kind of visualizations ?
 According to this definition, the visualizations used for this purpose should
@@ -128,28 +133,33 @@ using a bar chart will result in an analysis of the comparison between several v
 for the same category.
 
 \subsection{How to achieve it ?}
-Abstract description of the task to perform
-Lots of methodologies, but need to chose visualizations to apply to refined
-data sets in order to achieve some final goal
-		-> several challenges
-		define what is the information the dashboard should help understanding
-		prepare data to be visualize
-		chose visualization for each group of data
-		fill the visualization with the well formatted data set
-		arrange the visualisations into a (multiple) dashboard
-		audit the dashboard according to the initial motivation
+In order to design such visualization dashboard, one need to chose visualizations
+to apply to refined datasets in order to achieve some identified final goal.
+This lead to several tasks, independently of the concrete methodology one chooses to use :
+\iitem{a} define what will be the purpose of the dashboard
+\iitem{b} select data to be visualize
+\iitem{c} chose visualization for each group of data
+\iitem{d} fill the visualization with the well formatted data set
+\iitem{e} arrange the visualisations into a (multiple) dashboard
+\iitem{f} audit the dashboard according to the initial motivation
 
 \subsection{How to implement it}
-		Those challenges refer to three different domains :
-			Requirement Engineering
-			Data treatment
-			Dashboard design
-		Existing : SQL...
-		One other way to tackle it is to design one DSL per domain
+Those tasks refer to three different domains :\\
+Requirement Engineering \iitem{a} \& \iitem{f}\\
+Data treatment \iitem{b} \& \iitem{d}\\
+Dashboard design \iitem{c} \& \iitem{e}\\
+% existing solution
+One could use existing solutions to implement each of those tasks, for example
+using SQL would be a suitable choice to store and refine sensor data, IFML to
+model the wanted organization of the dashboard and temporal logic to define
+the succession of action aimed to be performed with the final product, and finally
+D3.JS, AmChart or an other visualization library to implement the widgets
+with some HTML5 code to structure the result.
+% DSML
+One other way to tackle it is to design one DSL per domain
 This way, one, when in charge of a given domain, may deal with a language
 specifically designed for his task, without being polluted by others
 vocabulary or domain constraints.
-%/!\ à traiter par domaine ou par "démarche"
 
 \section{Properties to satisfy and associated challenges}
 However, the design of such visualization tool is not trivial, leading to several challenges.

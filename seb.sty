@@ -1,0 +1,32 @@
+%% Seb's LaTeX macros
+%% Author: sebastien mosser [mosser@i3s.unice.fr]
+
+\usepackage{xspace}
+\usepackage{graphicx}
+
+
+\newcommand{\eg}{\emph{e.g.},\xspace}
+\newcommand{\ie}{\emph{i.e.},\xspace}
+
+
+% \incfig{file}{width}{label}{caption}
+\newcommand{\incfig}[4]{\begin{figure}[tb!]
+	\begin{center}
+		\includegraphics[width=#2\textwidth]{#1}
+		\caption{#4}
+		\label{figs:#3}
+	\end{center}
+\end{figure}}
+
+
+\newcommand{\reffig}[1]{\textsc{Fig.}~\ref{figs:#1}}
+\newcommand{\reftab}[1]{\textsc{Tab.}~\ref{tables:#1}}
+\newcommand{\refsec}[1]{\textsc{Sec.}~\ref{secs:#1}}
+
+
+\newcommand{\iitem}[1]{\emph{(#1)}\xspace}
+
+
+\newcommand{\mypar}[1]{\paragraph{\textbf{#1}.}}
+
+\newcommand{\mm}[1]{\textbf{\texttt{#1}}}
