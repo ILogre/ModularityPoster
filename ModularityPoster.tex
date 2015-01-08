@@ -1,4 +1,3 @@
-
 \documentclass{acm_proc_article-sp}
 
 \begin{document}
@@ -49,30 +48,50 @@ Then, the third chapter briefly offers some perspectives to tackle those challen
 \end{abstract}
 
 % A category with the (minimum) three required fields
-\category{H.4}{Information Systems Applications}{Miscellaneous}
-%A category including the fourth, optional field follows...
-\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+\category{D.2.8}{Software Engineering}{Data visualization, Software composition}[]
 
-\terms{Theory}
+\terms{???}
 
-\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+\keywords{visualization, sensor, data, composition}
 
 \section{Introduction}
 Introduction
 
 \section{Sensor data visualization}
-Sentence to introduce this chapter
+The increase of data producing objects leads to a growing need to interpret those
+data in order to extract knowledge. When there is a human at the end of the
+production chain, the result must allow her to exploit it, so being adapted to his
+capabilities. Such visualization are used to assist one to make a decision according
+to a projection of facts, as are sensed data.
 
 \subsection{What is sensor data visualization ?}
-Definition of sensor data visualization.
-		Data visualization through dashboards (def)
-		What kind of visualizations ?
-		For what kind of data ?
-		For what purposes ?
+% Data visualization through dashboards (def)
+Visualization is the most common way to allow a human to induce information from raw data
+through dashboards.
+Stephen Few define a dashboard as "a visual display of the most important
+information needed to achieve one or more objectives; consolidated and arranged
+on a single screen so the information can be monitored at a glance"\cite{few:dashboard} \\
+% What kind of visualizations ?
+According to this definition, the visualizations used for this purpose should
+be a graphical representation of the data to treat. Apart from the well-known
+generic charts (e.g. line chart, bar chart, pie chart, ...), a huge amount
+of specialized visualizations is available for specific data and/or task.
+% Static vs dynamic
+Such graphical widgets may present a static representation of the data, as an
+assessment of a situation, or may offer one to interact with it with an aim of
+exploration, to search a more relevant data for each use, or to offer both an
+overview and a way to reduce the scope of the visualization.
+% Nb of dimensions
+Besides the ornamental criteria which only consist on a effect to change the aspect of the widget without impacting it capabilities (eg. 3D pie chart), the number of dimensions displayed play a part in the final use of the visualizations. Indeed, there may be one dimension (e.g. a simple display of your current speed on your car dashboard), two dimensions (as the generic charts above), or more (e.g. a country map with a color gradient to weight the population). 
+% For what kind of data ?
+
+
+% For what purposes ?
 
 \subsection{How to achieve it ?}
 Abstract description of the task to perform
-Lots of methodologies, but need to chose visualizations to apply to refined data sets in order to achieve some final goal
+Lots of methodologies, but need to chose visualizations to apply to refined
+data sets in order to achieve some final goal
 		-> several challenges
 		define what is the information the dashboard should help understanding
 		prepare data to be visualize
@@ -84,7 +103,7 @@ Lots of methodologies, but need to chose visualizations to apply to refined data
 \subsection{How to implement it}
 		Those challenges refer to three different domains :
 			Requirement Engineering
-			Data traitement
+			Data treatment
 			Dashboard design
 		Existing : SQL...
 		One other way to tackle it is to design one DSL per domain
@@ -94,11 +113,14 @@ vocabulary or domain constraints.
 %/!\ à traiter par domaine ou par "démarche"
 
 \section{Properties to satisfy and associated challenges}
-Sentence to introduce this chapter
+However, the design of such visualization tool is not trivial, leading to several challenges.
 
 \subsection{Evolutivity}
-Data visualization is a growing, fast evolving field, as well as requirement engineering is an active research field offering new way to capture needs.
-For those reasons, their respective DSL will have to evolve in time, the composition should therefore take this fact into consideration to ease the evolutivity of the whole composed dashboard design framework.
+Data visualization is a growing, fast evolving field, as well as requirement
+engineering is an active research field offering new way to capture needs.
+For those reasons, their respective DSL will have to evolve in time, the
+composition should therefore take this fact into consideration to ease the
+evolutivity of the whole composed dashboard design framework.
 
 \subsection{Isolation}
 \subsection{Low coupling}
