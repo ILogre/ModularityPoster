@@ -74,63 +74,67 @@ tackle those challenges.
 % une colonne max.
 \mypar{Process overview}
 % Qui sont les roles intervenants?
-In order to design such visualization dashboard, there is a need to chose
-visualizations to apply to refined datasets in order to achieve some
-identified final goal. This task is to be performed by three roles :
+In order to design and implement such visualization dashboard, there
+is a need to chose visualizations to apply to refined datasets in
+order to achieve some identified final goal. This task is to be
+performed by three roles:
 \begin{enumerate}
 \item a Requirement Engineer (RE),
 \item a Data Manager (DM),
-\item  a Dashboard Designer (DD).
+\item a Dashboard Designer (DD).
 \end{enumerate}
 % Quels sont leurs domaines de competences?
-Each role is responsible for several tasks:
-(i) the RE define what will be the purpose of the dashboard and audit the
-resulting dashboard according to the initial motivation,
-(ii) the DM select data to be visualize and treat it in order to provide
-the needed well formatted datasets,
-(iii) the DD chose visualization for each group of data and arrange them
-spatially into a dashboard.
-% Pourquoi ces competences sont souvent des acteurs differents et pas juste des roles?
-Even if those roles collaborates, e.g. the choice of visualization the DD has
-to make depends on the purpose exposed by the RE, they relates on distinct
-domains of expertise, each one bringing is own challenges, therefore each role
-is usually impersonated by a dedicated stakeholder.
-\mypar{Designing dashboard}
-%\begin{enumerate}
-% Quels sont les outils a dispositions (UML, CTT)
-One could use existing solutions to implement each of the mentioned tasks, for
-example using SQL would be a suitable choice to store and refine
-sensor data, IFML to model the wanted organization of the dashboard
-and temporal logic or CTT to define the aimed product and succession of action
-to be performed with it.
+Each role is responsible for several tasks: (i) the RE define what
+will be the purpose of the dashboard and audit the resulting dashboard
+according to the initial motivation, (ii) the DM select data to be
+visualize and treat it in order to provide the needed well formatted
+datasets, (iii) the DD chose visualization for each group of data and
+arrange them spatially into a dashboard.
+% Pourquoi ces competences sont souvent des acteurs differents et pas
+% juste des roles?
+Even if those roles collaborates, e.g. the choice of visualization the
+DD has to make depends on the purpose exposed by the RE, they relates
+on distinct domains of expertise and formation, each one bringing is
+own challenges, therefore each role is usually impersonated by a
+dedicated stakeholder.  \mypar{Designing dashboard}
+% \begin{enumerate}
+%   Quels sont les outils a dispositions (UML, CTT)
+One could use existing solutions to implement each of the mentioned
+tasks, for example using SQL would be a suitable choice to store and
+refine sensor data, the Interaction Flow Modeling Language
+(IFML)~\cite{} to model the wanted organization of the dashboard and
+temporal logic or Concurrent Tasks Tree (CTT)~\cite{} to define the
+aimed product and succession of action to be performed with it.
 % Quels sont les problemes quand on les utilise?
-However, those tools are not designed for the visualization field and reveal a
-lack of expressivity being too generic, as CTT which offers no solution about
-characterization of visualization need.
-% Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
-Moreover, there is a lack of interoperability between those tools due to the
-distinct field they come from. This results in a difficulty for the stakeholders
-to dialogue and converge toward a solution when a compromise is needed.
-%\end{enumerate}
+Those tools were not designed for the visualization field and reveal a
+lack of expressivity being too generic, as CTT that offers no solution
+about characterization of visualization need.
+% Est-ce qu'on sort certains experts de leur domaine de competences
+% avec ces outils?
+Moreover, there is a lack of interoperability between those tools due
+to the distinct field they come from. This results in a difficulty for
+the stakeholders to dialogue and converge toward a solution when a
+compromise is needed.
+% \end{enumerate}
 
 \mypar{Implementing dashboard}
-
 % Quels sont les outils a dispositions (Web, bibliotheques)
-To implement the dashboard, one can use on-line visualization widget libraries,
-either professional solution as HighChart and AmChart or community-based example
-as D3.JS, and add HTML5 code to structure the result.
+To implement a given dashboard, one can use online visualization widget
+libraries, either professional solution as HighChart and AmChart or
+community-based example as D3.JS, and add HTML5 code to structure the
+result.
 % Quels sont les problemes quand on les utilise?
 However, those widgets does not allows integrability with a lot of data format,
 since the development effort is put on the interaction more instead of the interoperability.
 Also, the huge amount of available widgets, e.g. D3.js offers 235 widgets on
 January 2015, increase the difficulty to choose a suitable visualization,
 % Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
-due to the lack of effort in categorization of those new visualization capabilities.
+due to the lack of effort in categorization of those new visualization
+capabilities\cite{ecmfa}.
 Those last two points strengthen the difficulty to cooperate with other domains
 because of the gap between the conceptual role of the RE and the implementation
 role of the DD, and because of the incompatible constraints impose by libraries
 on data format which reduce re-usability.
-
 
 \section{Challenges}
 
@@ -146,7 +150,7 @@ software composition could be helpful to support this process.
 %% composition (ou des deux), et discuter des benefics envisages par
 %% une approche de ce genre.
 
-\mypar{Evolutivity}
+\mypar{Evolution capabilities}
 Data visualization is a growing, fast evolving field, as well as
 requirement engineering is an active research field offering new way
 to capture needs.  For those reasons, their respective DSL will have
