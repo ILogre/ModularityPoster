@@ -8,7 +8,7 @@
 \title{Composition Challenges for Sensor Data Visualization}
 % \subtitle{}
 
-\numberofauthors{4} \author{
+\numberofauthors{3} \author{
   % 1st. author
   \alignauthor Ivan Logre\\
   \affaddr{Univ. Nice Sophia Antipolis}\\
@@ -73,25 +73,48 @@ tackle those challenges.
 \section{Visualization Dashboards}
 % une colonne max.
 \mypar{Process overview}
+% Qui sont les roles intervenants?
+In order to design such visualization dashboard, there is a need to chose
+visualizations to apply to refined datasets in order to achieve some
+identified final goal. This task is to be performed by three roles :
 \begin{enumerate}
-\item Qui sont les roles intervenants?
-\item Quels sont leurs domaines de competences?
-\item Pourquoi ces competences sont souvent des acteurs differents et pas juste des roles?
+\item a Requirement Engineer (RE),
+\item a Data Manager (DM),
+\item  a Dashboard Designer (DD).
 \end{enumerate}
-
+% Quels sont leurs domaines de competences?
+Each role is responsible for several tasks:
+(i) the RE define what will be the purpose of the dashboard and audit the
+resulting dashboard according to the initial motivation,
+(ii) the DM select data to be visualize and treat it in order to provide
+the needed well formatted datasets,
+(iii) the DD chose visualization for each group of data and arrange them
+spatially into a dashboard.
+% Pourquoi ces competences sont souvent des acteurs differents et pas juste des roles?
+Even if those roles collaborates, e.g. the choice of visualization the DD has to make depends on the purpose exposed by the RE, they relates on distinct domains of expertise, each one bringing is own challenges, therefore each role is usually impersonated by a dedicated stakeholder.
 \mypar{Designing dashboard}
-\begin{enumerate}
-\item Quels sont les outils a dispositions (UML, CTT)
-\item Quels sont les problemes quand on les utilise?
-\item Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
-\end{enumerate}
+%\begin{enumerate}
+% Quels sont les outils a dispositions (UML, CTT)
+One could use existing solutions to implement each of the mentioned tasks, for
+example using SQL would be a suitable choice to store and refine
+sensor data, IFML to model the wanted organization of the dashboard
+and temporal logic or CTT to define the aimed product and succession of action
+to be performed with it.
+% Quels sont les problemes quand on les utilise?
+However, those tools are not designed for the visualization field and reveal a
+lack of expressivity being too generic, as CTT which offers no solution about
+characterization of visualization need.
+% Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
+Moreover, there is a lack of interoperability between those tools due to the distinct field they come from. This results in a difficulty for the stakeholders to dialogue and converge toward a solution when a compromise is needed.
+%\end{enumerate}
 
 \mypar{Implementing dashboard}
-\begin{enumerate}
-\item Quels sont les outils a dispositions (Web, bibliotheques)
-\item Quels sont les problemes quand on les utilise?
-\item Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
-\end{enumerate}
+%\begin{enumerate}
+%\item Quels sont les outils a dispositions (Web, bibliotheques)
+D3.JS, AmChart or an other visualization library to implement the widgets with some HTML5 code to structure the result.
+%\item Quels sont les problemes quand on les utilise?
+%\item Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
+%\end{enumerate}
 
 
 \section{Challenges}
