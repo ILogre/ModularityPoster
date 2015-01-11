@@ -140,8 +140,9 @@ on data format which reduce re-usability.
 
 The previous section described how people support the design and
 implementation of dashboards using both state of the art and state of
-practice methods. We highlight in this section four challenges
-triggered by such approach, and discuss how separation of concerns and
+practice methods. We highlight in this section the challenges of isolation
+triggered by such approach, detailing it through two axes, namely evolution
+capacity and integrity, and discuss how separation of concerns and
 software composition could be helpful to support this process.
 
 %% Pour chaque paragraphe, se raccrocher au contexte de la section
@@ -149,53 +150,55 @@ software composition could be helpful to support this process.
 %% identifier le probleme du point de vue ou de la separation ou de la
 %% composition (ou des deux), et discuter des benefics envisages par
 %% une approche de ce genre.
+\mypar{Isolation challenge}
+Each stakeholder should be able to work in his domain of competence,
+in isolation from the other domains. This main challenge implies that
+each one may work without the irrelevant noise of others contribution,
+focusing on concepts of his own domain, or, in case of a shared concept,
+only on the facet of this concept relevant for the task of this role.
+For example, as a dashboard designer, one may want to define a link
+between the visualization being constructed and some data, but should
+not be requested to be competent as a data manager while working on it.
+Indeed, the relevant informations in a data polishing point of view should
+be handled by a specialist of this domain, but not only this specialist
+would need to reference a specific dataset.
 
 \mypar{Evolution capabilities}
 Data visualization is a growing, fast evolving field, as well as
 requirement engineering is an active research field offering new way
-to capture needs.  For those reasons, their respective DSL will have
-to evolve in time, the composition should therefore take this fact
-into consideration to ease the evolutivity of the whole composed
-dashboard design framework.
+to capture needs.  For those reasons, their respective tool or domain
+specific languages (DSL) used will have to evolve in time, the composition
+should therefore take this fact into consideration to ease the evolution
+capability of the whole composed dashboard design framework.
 
-\mypar{Isolation}
-Each domain expert (i.e. user of a solution specific to a domain)
-should be able to work in isolation from the other domains. This means
-that one can always contribute in her own domain, to improve her
+% il faut embrayer pour la suite que ce sont des domaines par essence séparé, et que si on cherche a maintenir cette séparation, la manière dont il vont devoir ietre composé doit tenir compte de cette grande versatilité
+% quels sont les avantages a les maintenir séparés, et du du coup pourquoi on a un vrai défi a ietre capable de les composer
+
+\mypar{Integrity}
+This means that one can always contribute in her own domain, to improve her
 contribution, and being able to check that this evolution is
 consistent in this domain, even if the other domains are in an
 unstable or incoherent state.
 
-\mypar{Low coupling}
-The number of hypothesis made in a domain implementation to the others
-should be as small as possible. In addition to be a good software
-development practice, this criteria eases the replacement of solution
-by an other one, e.g. of the data management by a visualization
-resource DSL.
-%%% to complete
-
-\mypar{Integrity}
-
-\section{Conclusions}
-
-%% Un petit paragraphe de conclusions/
-
 %% Ouvrir sur la compo de DSL
 \mypar{Actionable insights: DSL composition}
 One interesting way to tackle those challenges would be to design a
-DSL for each of the three domains mentioned in \ref{subsec:How to
-  implement it} and then to compose those partial results in a overall
-data visualization solution.
+DSL for each of the three domains mentioned and then to compose those
+partial results in a overall data visualization solution.
 The state of the art reveals two main ways to manage this composition :\\
 \iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta
 model from several meta models by identification of a pivot and
 merging from it, and
-then refine the associated concrete syntaxes to produce a global one. (insert ref)\\
-\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. (insert ref)\\
+then refine the associated concrete syntaxes to produce a global one. \cite{?}\\
+\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. \cite{?}\\
 The authors short-term perspective is to work on the integration of
 the DSLs as software services in order to be able to compose languages
 while insuring the same properties as service-oriented architecture
 field.
+
+\section{Conclusions}
+
+%% Un petit paragraphe de conclusions/
 
 
 
