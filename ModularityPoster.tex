@@ -6,209 +6,164 @@
 
 
 \title{Composition Challenges for Sensor Data Visualization}
-%\subtitle{}
+% \subtitle{}
 
-\numberofauthors{4}
-\author{
-% 1st. author
-\alignauthor Ivan Logre\\
-       \affaddr{Univ. Nice Sophia Antipolis}\\
-       \affaddr{CNRS, I3S, UMR 7271}\\
-       \affaddr{06900 Sophia Antipolis}\\
-       \email{logre@i3s.unice.fr}
-% 2nd. author
-\alignauthor S{\'e}bastien Mosser\\
-       \affaddr{Univ. Nice Sophia Antipolis}\\
-       \affaddr{CNRS, I3S, UMR 7271}\\
-       \affaddr{06900 Sophia Antipolis}\\
-       \email{mosser@i3s.unice.fr}
-% 3rd. author
-\alignauthor Michel Riveill\\
-       \affaddr{Univ. Nice Sophia Antipolis}\\
-       \affaddr{CNRS, I3S, UMR 7271}\\
-       \affaddr{06900 Sophia Antipolis}\\
-       \email{riveill@i3s.unice.fr}
-}
+\numberofauthors{4} \author{
+  % 1st. author
+  \alignauthor Ivan Logre\\
+  \affaddr{Univ. Nice Sophia Antipolis}\\
+  \affaddr{CNRS, I3S, UMR 7271}\\
+  \affaddr{06900 Sophia Antipolis}\\
+  \email{logre@i3s.unice.fr}
+  % 2nd. author
+  \alignauthor S{\'e}bastien Mosser\\
+  \affaddr{Univ. Nice Sophia Antipolis}\\
+  \affaddr{CNRS, I3S, UMR 7271}\\
+  \affaddr{06900 Sophia Antipolis}\\
+  \email{mosser@i3s.unice.fr}
+  % 3rd. author
+  \alignauthor Michel Riveill\\
+  \affaddr{Univ. Nice Sophia Antipolis}\\
+  \affaddr{CNRS, I3S, UMR 7271}\\
+  \affaddr{06900 Sophia Antipolis}\\
+  \email{riveill@i3s.unice.fr} }
 
 \date{06 January 2015}
 
 \maketitle
 \begin{abstract}
-This paper describes how the design of dashboard visualizing data collected from
-sensors triggers multiple challenges about software composition through separation
-of concern and modularity in order to insure properties on the design process.
+  %% Problem
+  Connected objects and other monitoring systems continuously produce
+  data about their environment. Dashboards are then designed to
+  aggregate and present data to end-users.
+  %% Contribution
+  Technologies used to design and implement visualization dashboards
+  are babbling from a software engineering point of view. This paper
+  highlights how this domain could benefit from leveraging separation
+  of concerns and software composition paradigms.
+  %% Results
+  % It describes how the design of dashboard visualizing data
+  % collected from sensors triggers multiple challenges about software
+  % composition through separation of concern and modularity in order to
+  % insure properties on the design process.
 \end{abstract}
 
 % A category with the (minimum) three required fields
-\category{D.2.8}{Software Engineering}{Data visualization, Software composition}[]
+\category{D.2.8}{Software Engineering}{Data visualization, Software
+  composition}[]
 
 \keywords{visualization, sensor, data, composition}
 
 \section{Introduction}
-The increase of data producing objects leads to a growing need to interpret those
-data in order to extract knowledge. When there is a human at the end of the
-production chain, the result must allow her to exploit it, so being adapted to his
-capabilities. Such visualization are used to assist one to make a decision according
-to a projection of facts, as are sensed data. Visualization is a way to allow a
-human to induce information from raw data through dashboards. The first chapter
-defines our context of work through a short definition of this field, a clarification
-about the aim and the efforts to achieve it and several exiting way to implement
-a visualization solution. The second chapter raises the challenges relatively to
-software engineering, detailing properties to observe while contributing to this
-particular field. Then, the third chapter briefly offers some perspectives to
+The increase of data producing objects leads to a growing need to
+interpret those data in order to extract knowledge. When there is a
+human at the end of the production chain, the result must allow her to
+exploit it, so being adapted to his capabilities. Such visualization
+are used to assist one to make a decision according to a projection of
+facts, as are sensed data. Visualization is a way to allow a human to
+induce information from raw data through dashboards. The first chapter
+defines our context of work through a short definition of this field,
+a clarification about the aim and the efforts to achieve it and
+several exiting way to implement a visualization solution. The second
+chapter raises the challenges relatively to software engineering,
+detailing properties to observe while contributing to this particular
+field. Then, the third chapter briefly offers some perspectives to
 tackle those challenges.
 
-\section{Sensor data visualization}
+\section{Visualization Dashboards}
+% une colonne max.
+\mypar{Process overview}
+\begin{enumerate}
+\item Qui sont les roles intervenants?
+\item Quels sont leurs domaines de competences?
+\item Pourquoi ces competences sont souvent des acteurs differents et pas juste des roles?
+\end{enumerate}
+
+\mypar{Designing dashboard}
+\begin{enumerate}
+\item Quels sont les outils a dispositions (UML, CTT)
+\item Quels sont les problemes quand on les utilise?
+\item Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
+\end{enumerate}
+
+\mypar{Implementing dashboard}
+\begin{enumerate}
+\item Quels sont les outils a dispositions (Web, bibliotheques)
+\item Quels sont les problemes quand on les utilise?
+\item Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
+\end{enumerate}
 
 
-\subsection{What is sensor data visualization ?}
-% Data visualization through dashboards (def)
+\section{Challenges}
 
-Stephen Few define a dashboard as "a visual display of the most important
-information needed to achieve one or more objectives; consolidated and arranged
-on a single screen so the information can be monitored at a glance"\cite{few:dashboard}
-In this paper, we will discuss about multiple dashboards, i.e. succession of screens,
-in order to include in our study the sensor data rendering organised in separate unit
-of visualization.
+The previous section described how people support the design and
+implementation of dashboards using both state of the art and state of
+practice methods. We highlight in this section four challenges
+triggered by such approach, and discuss how separation of concerns and
+software composition could be helpful to support this process.
 
-% What kind of visualizations ?
-According to this definition, the visualizations used for this purpose should
-be a graphical representation of the data to treat. Apart from the well-known
-generic charts (e.g. line chart, bar chart, pie chart, ...), a huge amount
-of specialized visualizations is available for specific data and/or task.
-% Static vs dynamic
-Such graphical widgets may present a static representation of the data, as an
-assessment of a situation, or may offer one to interact with it with an aim of
-exploration, to search a more relevant data for each use, or to offer both an
-overview and a way to reduce the scope of the visualization.
-% Nb of dimensions
-Besides the ornamental criteria which only consist on a effect to change the
-aspect of the widget without impacting it capabilities (eg. 3D pie chart), the
-number of dimensions displayed play a part in the final use of the visualizations.
-Indeed, there may be one dimension (e.g. a simple display of your current speed
-on your car dashboard), two dimensions (as the generic charts above), or more
-(e.g. a country map with a color gradient to weight the population). 
-Among the dimensions of a given visualization, one or several has to be used to
-categorize the input data. The other dimensions are the values to display.
-For example, a line chart represents values according to the time where
-a pie chart display, for each entry of a given categorization, the volume
-or percentage of matching data. The previously mentioned three dimension map
-displays a value, the amount of human being, in function of a complex category :
-the combination of a latitude and a longitude.
-In addition, due to ergonomic constraints, a visualization may impose a limit on
-(i) the number of different category displayable, e.g. a pie chart should
-have eight portions maximum;
-(ii) the number of value dimensions, e.g. a line chart should not represent more
-than ten lines to be readable
-(iii) on both category and value number, e.g. a bar chart should displays maximum
-five values per category, and the number of category should be limited according
-to the screen size so that the user can still distinguish each bar from the others.
+%% Pour chaque paragraphe, se raccrocher au contexte de la section
+%% d'avant (je ne peux pas le faire tant que c'est aps ecrit),
+%% identifier le probleme du point de vue ou de la separation ou de la
+%% composition (ou des deux), et discuter des benefics envisages par
+%% une approche de ce genre.
 
-% For what kind of data ?
-Raw data produce by physical sensors are essentially timed values. The type of
-the value (eg. string, numerical, ...) and the unit of measurement in which it
-is expressed have an influence on the suitable possibilities of visualization.
-For example, given a window status sensor emitting either "opened" or "close"
-every minute, the use of a pie chart would not be relevant. On the other hand,
-knowing that the values are temperature measure may lead to a continuous representation
-(e.g. line chart) instead of a discrete one (e.g. a bar chart), or even to a specialized
-widget for this kind of data.
-% Virtual sensor & Data composition
-Data can also be the result of a calculation, which can be as simple as the transformation
-of an electrical tension to a temperature, or a more complex one such as a composition
-of several dataset to infer a new one.
+\mypar{Evolutivity}
+Data visualization is a growing, fast evolving field, as well as
+requirement engineering is an active research field offering new way
+to capture needs.  For those reasons, their respective DSL will have
+to evolve in time, the composition should therefore take this fact
+into consideration to ease the evolutivity of the whole composed
+dashboard design framework.
 
-% For what purposes ?
-The intention pursued in the dashboard construction is directly linked to design
-choices and to the selection visualization among the amount of possibilities available.
-Indeed, two different widgets, fed with the exact same data, may highlight specific
-aspect of it and lead to different domains of interpretation. For example,
-the use of a line chart implicitly infer the impression of continuity and so leads
-to focus the interpretation on the variations in the values while, in a other hand,
-using a bar chart will result in an analysis of the comparison between several values
-for the same category.
+\mypar{Isolation}
+Each domain expert (i.e. user of a solution specific to a domain)
+should be able to work in isolation from the other domains. This means
+that one can always contribute in her own domain, to improve her
+contribution, and being able to check that this evolution is
+consistent in this domain, even if the other domains are in an
+unstable or incoherent state.
 
-\subsection{How to achieve it ?}
-In order to design such visualization dashboard, one need to chose visualizations
-to apply to refined datasets in order to achieve some identified final goal.
-This lead to several tasks, independently of the concrete methodology one chooses to use :
-\iitem{a} define what will be the purpose of the dashboard
-\iitem{b} select data to be visualize
-\iitem{c} chose visualization for each group of data
-\iitem{d} fill the visualization with the well formatted data set
-\iitem{e} arrange the visualisations into a (multiple) dashboard
-\iitem{f} audit the dashboard according to the initial motivation
+\mypar{Low coupling}
+The number of hypothesis made in a domain implementation to the others
+should be as small as possible. In addition to be a good software
+development practice, this criteria eases the replacement of solution
+by an other one, e.g. of the data management by a visualization
+resource DSL.
+%%% to complete
 
-\subsection{How to implement it}
-Those tasks refer to three different domains :\\
-Requirement Engineering \iitem{a} \& \iitem{f}\\
-Data treatment \iitem{b} \& \iitem{d}\\
-Dashboard design \iitem{c} \& \iitem{e}\\
-The separation of the whole problem in domain specific sub-part aim to simplify
-the resolution of each domain challenge and to allow the contribution of specialist
-for a domain specific problem without disturbance from the other part noise.
-% existing solution
-One could use existing solutions to implement each of those tasks, for example
-using SQL would be a suitable choice to store and refine sensor data, IFML to
-model the wanted organization of the dashboard and temporal logic to define
-the succession of action aimed to be performed with the final product, and finally
-D3.JS, AmChart or an other visualization library to implement the widgets
-with some HTML5 code to structure the result.
-% DSML
-One other way to tackle it is to design one DSL per domain
-This way, one, when in charge of a given domain, may deal with a language
-specifically designed for his task, without being polluted by others
-vocabulary or domain constraints.
+\mypar{Integrity}
 
-\section{Properties to satisfy and associated challenges}
-However, the design of such visualization tool is not trivial, leading to several challenges.
+\section{Conclusions}
 
-\subsection{Evolutivity}
-Data visualization is a growing, fast evolving field, as well as requirement
-engineering is an active research field offering new way to capture needs.
-For those reasons, their respective DSL will have to evolve in time, the
-composition should therefore take this fact into consideration to ease the
-evolutivity of the whole composed dashboard design framework.
+%% Un petit paragraphe de conclusions/
 
-\subsection{Isolation}
-Each domain expert (i.e. user of a solution specific to a domain) should be able to
-work in isolation from the other domains. This means that one can always contribute
-in her own domain, to improve her contribution, and being able to check that
-this evolution is consistent in this domain, even if the other domains are in
-an unstable or incoherent state.
-
-\subsection{Low coupling}
-The number of hypothesis made in a domain implementation to the others should be
-as small as possible. In addition to be a good software development practice,
-this criteria eases the replacement of solution by an other one, e.g. of the
-data management by a visualization resource DSL.
-									%%% to complete
-
-\subsection{Integrity}
-
-\section{Actionable insights}
-\subsection{DSL composition}
-One interesting way to tackle those challenges would be to design a DSL for each
-of the three domains mentioned in \ref{subsec:How to implement it} and then to
-compose those partial results in a overall data visualization solution.
+%% Ouvrir sur la compo de DSL
+\mypar{Actionable insights: DSL composition}
+One interesting way to tackle those challenges would be to design a
+DSL for each of the three domains mentioned in \ref{subsec:How to
+  implement it} and then to compose those partial results in a overall
+data visualization solution.
 The state of the art reveals two main ways to manage this composition :\\
-\iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta model
-from several meta models by identification of a pivot and merging from it, and
+\iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta
+model from several meta models by identification of a pivot and
+merging from it, and
 then refine the associated concrete syntaxes to produce a global one. (insert ref)\\
 \iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. (insert ref)\\
-The authors short-term perspective is to work on the integration of the DSLs as software services in order to be able to compose languages while insuring the same properties as service-oriented architecture field.
+The authors short-term perspective is to work on the integration of
+the DSLs as software services in order to be able to compose languages
+while insuring the same properties as service-oriented architecture
+field.
 
 
 
-% The following two commands are all you need in the
-% initial runs of your .tex file to
-% produce the bibliography for the citations in your paper.
+% The following two commands are all you need in the initial runs of
+% your .tex file to produce the bibliography for the citations in your
+% paper.
 \bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
-% You must have a proper ".bib" file
-%  and remember to run:
-% latex bibtex latex latex
-% to resolve all references
+\bibliography{sigproc} % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file and remember to run: latex bibtex
+% latex latex to resolve all references
 %
 % ACM needs 'a single self-contained file'!
 \end{document}
