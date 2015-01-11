@@ -1,10 +1,11 @@
 \documentclass{acm_proc_article-sp}
 \usepackage{seb}
+\usepackage{fancyref}
 
 \begin{document}
 
 
-\title{Composition challenges for sensor data visualization}
+\title{Composition Challenges for Sensor Data Visualization}
 %\subtitle{}
 
 \numberofauthors{4}
@@ -21,14 +22,7 @@
        \affaddr{CNRS, I3S, UMR 7271}\\
        \affaddr{06900 Sophia Antipolis}\\
        \email{mosser@i3s.unice.fr}
-\and
 % 3rd. author
-\alignauthor Philippe Collet\\
-       \affaddr{Univ. Nice Sophia Antipolis}\\
-       \affaddr{CNRS, I3S, UMR 7271}\\
-       \affaddr{06900 Sophia Antipolis}\\
-       \email{collet@i3s.unice.fr}
-% 4th. author
 \alignauthor Michel Riveill\\
        \affaddr{Univ. Nice Sophia Antipolis}\\
        \affaddr{CNRS, I3S, UMR 7271}\\
@@ -40,13 +34,9 @@
 
 \maketitle
 \begin{abstract}
-This paper provides a overview of the sensor data visualization requirements in
-terms of software engineering. The first chapter defines our context of work
-through a short definition of this field, a clarification about the aim and the
-efforts to achieve it and several exiting way to implement a visualization solution.
-The second chapter raises the challenges relatively to software engineering,
-detailing properties to observe while contributing to this particular field.
-Then, the third chapter briefly offers some perspectives to tackle those challenges.
+This paper describes how the design of dashboard visualizing data collected from
+sensors triggers multiple challenges about software composition through separation
+of concern and modularity in order to insure properties on the design process.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -55,19 +45,25 @@ Then, the third chapter briefly offers some perspectives to tackle those challen
 \keywords{visualization, sensor, data, composition}
 
 \section{Introduction}
-Introduction
-
-\section{Sensor data visualization}
 The increase of data producing objects leads to a growing need to interpret those
 data in order to extract knowledge. When there is a human at the end of the
 production chain, the result must allow her to exploit it, so being adapted to his
 capabilities. Such visualization are used to assist one to make a decision according
-to a projection of facts, as are sensed data.
+to a projection of facts, as are sensed data. Visualization is a way to allow a
+human to induce information from raw data through dashboards. The first chapter
+defines our context of work through a short definition of this field, a clarification
+about the aim and the efforts to achieve it and several exiting way to implement
+a visualization solution. The second chapter raises the challenges relatively to
+software engineering, detailing properties to observe while contributing to this
+particular field. Then, the third chapter briefly offers some perspectives to
+tackle those challenges.
+
+\section{Sensor data visualization}
+
 
 \subsection{What is sensor data visualization ?}
 % Data visualization through dashboards (def)
-Visualization is the most common way to allow a human to induce information from raw data
-through dashboards.
+
 Stephen Few define a dashboard as "a visual display of the most important
 information needed to achieve one or more objectives; consolidated and arranged
 on a single screen so the information can be monitored at a glance"\cite{few:dashboard}
@@ -120,7 +116,7 @@ widget for this kind of data.
 % Virtual sensor & Data composition
 Data can also be the result of a calculation, which can be as simple as the transformation
 of an electrical tension to a temperature, or a more complex one such as a composition
-of several dataset to infer a new one, for example ??? //todo
+of several dataset to infer a new one.
 
 % For what purposes ?
 The intention pursued in the dashboard construction is directly linked to design
@@ -192,17 +188,18 @@ data management by a visualization resource DSL.
 
 \section{Actionable insights}
 \subsection{DSL composition}
+One interesting way to tackle those challenges would be to design a DSL for each
+of the three domains mentioned in \ref{subsec:How to implement it} and then to
+compose those partial results in a overall data visualization solution.
+The state of the art reveals two main ways to manage this composition :\\
+\iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta model
+from several meta models by identification of a pivot and merging from it, and
+then refine the associated concrete syntaxes to produce a global one. (insert ref)\\
+\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. (insert ref)\\
+The authors short-term perspective is to work on the integration of the DSLs as software services in order to be able to compose languages while insuring the same properties as service-oriented architecture field.
 
-		Aggregation
-		Fusion/Merge
-		Integration
 
 
-
-%\end{document}  % This is where a 'short' article might terminate
-
-
-%
 % The following two commands are all you need in the
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
