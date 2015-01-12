@@ -162,17 +162,27 @@ not be requested to be competent as a data manager while working on it.
 Indeed, the relevant informations in a data polishing point of view should
 be handled by a specialist of this domain, but not only this specialist
 would need to reference a specific dataset.
+% quels sont les avantages a les maintenir séparés ^
 
 \mypar{Evolution capabilities}
-Data visualization is a growing, fast evolving field, as well as
-requirement engineering is an active research field offering new way
-to capture needs.  For those reasons, their respective tool or domain
+Data visualization is a growing, fast evolving field
+(3 320 000 Google results in 01/15,
+D3.js offered 133 widgets in 04/14 and 235 in 01/15),
+as well as requirement engineering (RE) is an active research field
+offering new way to capture needs (more than 730 papers published
+last year talked about RE, and 640 about goal models)
+and data scalability is still an opened scientific lock.
+For those reasons, their respective tool or domain
 specific languages (DSL) used will have to evolve in time, the composition
 should therefore take this fact into consideration to ease the evolution
 capability of the whole composed dashboard design framework.
-
-% il faut embrayer pour la suite que ce sont des domaines par essence séparé, et que si on cherche a maintenir cette séparation, la manière dont il vont devoir ietre composé doit tenir compte de cette grande versatilité
-% quels sont les avantages a les maintenir séparés, et du du coup pourquoi on a un vrai défi a ietre capable de les composer
+Each of this domains bring unique competences and expertise useful to
+the data visualization design field. Keeping the separation of concern
+allows each stakeholder to perform her dedicated task with the state of the art
+capabilities of her domain.
+Nonetheless, this separation of role specific solutions implies a composition
+of those partial results which could bridge the gap between the domains and
+manage the high versatility of those research fields.
 
 \mypar{Integrity}
 This means that one can always contribute in her own domain, to improve her
