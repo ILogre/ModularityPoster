@@ -185,10 +185,19 @@ of those partial results which could bridge the gap between the domains and
 manage the high versatility of those research fields.
 
 \mypar{Integrity}
-This means that one can always contribute in her own domain, to improve her
-contribution, and being able to check that this evolution is
-consistent in this domain, even if the other domains are in an
-unstable or incoherent state.
+In addition, the separation of concern has to allow one to contribute
+in her own domain, while being able to check if this evolution is
+consistent locally, meaning inside this domain, even if the other domains
+are in an unstable or incoherent state or if it is not possible to check
+the global consistency at the moment. For example, one as a data manager
+should be allowed to edit a resource measurement unit to optimize the data
+transfer and validate his contribution in the data point of view,
+even if it may have break the choice of visualizations used in the dashboard
+design domain.
+In order to reach a proper separation of concern, each domain solution 
+has then to be usable independently from the whole composed approach.
+This point raises a challenge on the composition of this partial solutions,
+introducing the notion of local and global consistency to handle.
 
 %% Ouvrir sur la compo de DSL
 \mypar{Actionable insights: DSL composition}
