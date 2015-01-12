@@ -55,20 +55,35 @@
 \keywords{visualization, sensor, data, composition}
 
 \section{Introduction}
-The increase of data producing objects leads to a growing need to
-interpret those data in order to extract knowledge. When there is a
-human at the end of the production chain, the result must allow her to
-exploit it, so being adapted to his capabilities. Such visualization
-are used to assist one to make a decision according to a projection of
-facts, as are sensed data. Visualization is a way to allow a human to
-induce information from raw data through dashboards. The first chapter
-defines our context of work through a short definition of this field,
-a clarification about the aim and the efforts to achieve it and
-several exiting way to implement a visualization solution. The second
-chapter raises the challenges relatively to software engineering,
-detailing properties to observe while contributing to this particular
-field. Then, the third chapter briefly offers some perspectives to
-tackle those challenges.
+
+The Internet of Things (IoT) relies on physical objects interconnected
+between each others, creating a mesh of devices producing
+information. In this context, sensors are surrounding our environment
+(\eg cars, buildings, smartphones) and continuously collect data about
+our living environment. To add value to these raw data sets,
+visualization dashboards are designed to support end-user decision
+making process. Unfortunately, the tools available to design and
+implement such dashboards are holistic, and does not take into account
+the inherent modularity of this domain. This paper does not aim to
+describe a solution, but instead focuses on the challenges triggered
+by the design of visualization dashboard, and align them with the
+modular paradigms such as separation of concerns and software
+composition.
+
+% The increase of data producing objects leads to a growing need to
+% interpret those data in order to extract knowledge. When there is a
+% human at the end of the production chain, the result must allow her to
+% exploit it, so being adapted to his capabilities. Such visualization
+% are used to assist one to make a decision according to a projection of
+% facts, as are sensed data. Visualization is a way to allow a human to
+% induce information from raw data through dashboards. The first chapter
+% defines our context of work through a short definition of this field,
+% a clarification about the aim and the efforts to achieve it and
+% several exiting way to implement a visualization solution. The second
+% chapter raises the challenges relatively to software engineering,
+% detailing properties to observe while contributing to this particular
+% field. Then, the third chapter briefly offers some perspectives to
+% tackle those challenges.
 
 \section{Visualization Dashboards}
 % une colonne max.
@@ -79,8 +94,8 @@ is a need to chose visualizations to apply to refined datasets in
 order to achieve some identified final goal. This task is to be
 performed by three roles:
 \begin{enumerate}
-\item a Requirement Engineer (RE),
-\item a Data Manager (DM),
+\item a Requirement Engineer (RE);
+\item a Data Manager (DM);
 \item a Dashboard Designer (DD).
 \end{enumerate}
 % Quels sont leurs domaines de competences?
@@ -215,8 +230,17 @@ the DSLs as software services in order to be able to compose languages
 while insuring the same properties as service-oriented architecture
 field.
 
-\section{Conclusions}
-
+\section{Conclusions \& Perspectives}
+In this paper, we described the domain of vizualization dashboard
+design. This domain crosscut several research fields, from
+human-computer interactions to big data. We highlighted four
+challenges in this domain where a software engineering approach based
+on modularity concepts could support it. However, all the challenges
+triggered by this domain are not yet solved from a separation of
+concerns point of view.  In our upcoming works, we plan to focus on
+defining a formal way to support exchanges between the different roles
+invilved in the domain, emphasizing integrity and isolation
+properties.
 %% Un petit paragraphe de conclusions/
 
 
