@@ -88,7 +88,8 @@ composition.
 
 \section{Visualization Dashboards}
 % une colonne max.
-\mypar{Process overview}
+%\mypar{Process overview}
+\textbf{Process overview.}
 % Qui sont les roles intervenants?
 In order to design and implement such visualization dashboard, there
 is a need to chose visualizations to apply to refined datasets in
@@ -112,7 +113,9 @@ Even if those roles collaborates, \eg the choice of visualization the
 DD has to make depends on the purpose exposed by the RE, they relates
 on distinct domains of expertise and formation, each one bringing is
 own challenges, therefore each role is usually impersonated by a
-dedicated stakeholder.  \mypar{Designing dashboard}
+dedicated stakeholder.  
+
+\textbf{Designing dashboard}
 % \begin{enumerate}
 %   Quels sont les outils a dispositions (UML, CTT)
 One could use existing solutions to implement each of the mentioned
@@ -133,7 +136,7 @@ the stakeholders to dialogue and converge toward a solution when a
 compromise is needed.
 % \end{enumerate}
 
-\mypar{Implementing dashboard}
+\textbf{Implementing dashboard.}
 % Quels sont les outils a dispositions (Web, bibliotheques)
 To implement a given dashboard, one can use online visualization widget
 libraries, either professional solution as HighChart and AmChart or
@@ -167,7 +170,8 @@ software composition could be helpful to support this process.
 %% identifier le probleme du point de vue ou de la separation ou de la
 %% composition (ou des deux), et discuter des benefics envisages par
 %% une approche de ce genre.
-\mypar{Isolation challenge}
+
+\textbf{Isolation challenge.}
 Each stakeholder should be able to work in his domain of competence,
 in isolation from the other domains. This main challenge implies that
 each one may work without the irrelevant noise of others contribution,
@@ -181,7 +185,7 @@ be handled by a specialist of this domain, but not only this specialist
 would need to reference a specific dataset.
 % quels sont les avantages a les maintenir séparés ^
 
-\mypar{Evolution capabilities}
+\textbf{Evolution capabilities.}
 Data visualization is a growing, fast evolving field
 (6 440 000 Google results for \emph{"data visualization"} in 01/15,
 D3.js offered 133 widgets in 04/14 and 235 in 01/15),
@@ -204,7 +208,7 @@ handle the interaction between those partial results,
 which could bridge the gap between the domains and
 manage the high versatility of those research fields.
 
-\mypar{Integrity}
+\textbf{Integrity.}
 In addition, the separation of concerns has to allow one to contribute
 in her own domain, while being able to check if this evolution is
 consistent locally, meaning inside this domain, even if the other domains
@@ -221,7 +225,7 @@ This point raises a challenge on the interaction of these partial solutions,
 introducing the notion of local and global consistency to handle.
 
 %% Ouvrir sur la compo de DSL
-\mypar{Actionable insights: DSL composition}
+\textbf{Actionable insights: DSL composition.}
 One interesting way to tackle those challenges would be to design a
 DSL for each of the three domains mentioned and then to compose those
 partial results in a overall data visualization solution.
