@@ -1,7 +1,8 @@
 \documentclass{acm_proc_article-sp}
 \usepackage{seb}
 \usepackage{fancyref}
-
+\usepackage{mdwlist}
+\makecompactlist{myenumerate}{enumerate}
 \begin{document}
 
 
@@ -93,11 +94,11 @@ In order to design and implement such visualization dashboard, there
 is a need to chose visualizations to apply to refined datasets in
 order to achieve some identified final goal. This task is to be
 performed by three roles:
-\begin{enumerate}
+\begin{myenumerate}
 \item a Requirement Engineer (RE);
 \item a Data Manager (DM);
 \item a Dashboard Designer (DD).
-\end{enumerate}
+\end{myenumerate}
 % Quels sont leurs domaines de competences?
 Each role is responsible for several tasks: (i) the RE define what
 will be the purpose of the dashboard and audit the resulting dashboard
@@ -189,30 +190,33 @@ since 2014 and referenced by Google Scholar contains
 \emph{"requirement engineering"}, and 640 \emph{"goal model"})
 and data scalability is still an opened scientific lock.
 For those reasons, their respective tool or domain
-specific languages (DSL) used will have to evolve in time, the composition
-should therefore take this fact into consideration to ease the evolution
+specific languages (DSL) used will have to evolve in time.
+A composition-based approach should therefore take this fact
+into consideration to ease the evolution
 capability of the whole composed dashboard design framework.
-Each of this domains bring unique competences and expertise useful to
-the data visualization design field. Keeping the separation of concern
-allows each stakeholder to perform her dedicated task with the state of the art
-capabilities of her domain.
-Nonetheless, this separation of role specific solutions implies a composition
-of those partial results which could bridge the gap between the domains and
+Indeed, each of this domains bring unique competences and expertise
+useful to the data visualization design field. Keeping the separation
+of concern allows each stakeholder to perform her dedicated task with
+the state of the art capabilities of her domain.
+Nonetheless, this separation of role specific solutions require to 
+handle the interaction between those partial results,
+which could bridge the gap between the domains and
 manage the high versatility of those research fields.
 
 \mypar{Integrity}
-In addition, the separation of concern has to allow one to contribute
+In addition, the separation of concerns has to allow one to contribute
 in her own domain, while being able to check if this evolution is
 consistent locally, meaning inside this domain, even if the other domains
 are in an unstable or incoherent state or if it is not possible to check
 the global consistency at the moment. For example, one as a data manager
 should be allowed to edit a resource measurement unit to optimize the data
 transfer and validate his contribution in the data point of view,
-even if it may have break the choice of visualizations used in the dashboard
-design domain.
-In order to reach a proper separation of concern, each domain solution 
-has then to be usable independently from the whole composed approach.
-This point raises a challenge on the composition of this partial solutions,
+even if it may have broke the choice of visualizations used in the
+dashboard design domain.
+In order to reach a proper separation of concerns, each domain solution 
+has then to be usable independently from any consideration of interaction
+with the other collaborating domains.
+This point raises a challenge on the interaction of these partial solutions,
 introducing the notion of local and global consistency to handle.
 
 %% Ouvrir sur la compo de DSL
