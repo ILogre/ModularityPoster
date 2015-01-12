@@ -101,13 +101,13 @@ dedicated stakeholder.  \mypar{Designing dashboard}
 %   Quels sont les outils a dispositions (UML, CTT)
 One could use existing solutions to implement each of the mentioned
 tasks, for example using SQL would be a suitable choice to store and
-refine sensor data, the Interaction Flow Modeling Language
-(IFML)~\cite{} to model the wanted organization of the dashboard and
-temporal logic or Concurrent Tasks Tree (CTT)~\cite{} to define the
+refine sensor data, the Interaction Flow Modelling Language
+(IFML)~\cite{ifml} to model the wanted organization of the dashboard and
+temporal logic or Concurrent Tasks Tree (CTT)~\cite{ctt} to define the
 aimed product and succession of action to be performed with it.
 % Quels sont les problemes quand on les utilise?
 Those tools were not designed for the visualization field and reveal a
-lack of expressivity being too generic, as CTT that offers no solution
+lack of expressiveness being too generic, as CTT that offers no solution
 about characterization of visualization need.
 % Est-ce qu'on sort certains experts de leur domaine de competences
 % avec ces outils?
@@ -208,8 +208,8 @@ The state of the art reveals two main ways to manage this composition :\\
 \iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta
 model from several meta models by identification of a pivot and
 merging from it, and
-then refine the associated concrete syntaxes to produce a global one. \cite{?}\\
-\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. \cite{?}\\
+then refine the associated concrete syntaxes to produce a global one. \cite{kienzle13}\\
+\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models to be able to link them through the transformation of several meta models by adding, deleting or editing specific model elements, essentially to align two concepts from different domains or to reference an external concept in order to delegate part of the responsibilities. \cite{blouin14}\\
 The authors short-term perspective is to work on the integration of
 the DSLs as software services in order to be able to compose languages
 while insuring the same properties as service-oriented architecture
