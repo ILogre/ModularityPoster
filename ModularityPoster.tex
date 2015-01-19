@@ -34,14 +34,14 @@
 \maketitle
 \begin{abstract}
   %% Problem
-  Connected objects and other monitoring systems continuously produce
+  Connected objects and monitoring systems continuously produce
   data about their environment. Dashboards are then designed to
-  aggregate and present data to end-users.
+  aggregate and present these data to end-users.
   %% Contribution
   Technologies used to design and implement visualization dashboards
   are babbling from a software engineering point of view. This paper
   highlights how this domain could benefit from leveraging separation
-  of concerns and software composition paradigms.
+  of concerns and software composition paradigms to support dashboard design.
   %% Results
   % It describes how the design of dashboard visualizing data
   % collected from sensors triggers multiple challenges about software
@@ -57,17 +57,17 @@
 
 \section{Introduction}
 
-The Internet of Things (IoT) relies on physical objects interconnected
+The \emph{Internet of Things} relies on physical objects interconnected
 between each others, creating a mesh of devices producing
 information. In this context, sensors are surrounding our environment
 (\eg cars, buildings, smartphones) and continuously collect data about
 our living environment. In order to add value to these raw data sets,
 visualization dashboards are designed to support end-user decision
 making process. Unfortunately, the tools available to design and
-implement such dashboards are holistic, and does not take into account
+implement such dashboards are holistic and do not take into account
 the inherent modularity of this domain. This paper does not aim to
 describe a solution, but instead focuses on the challenges triggered
-by the design of visualization dashboard, and align them with the
+by the design of visualization dashboards, and align them with
 modular paradigms such as separation of concerns and software
 composition.
 
