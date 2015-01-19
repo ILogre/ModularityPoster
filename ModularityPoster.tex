@@ -164,10 +164,10 @@ libraries on data format then reduce reusability.
 \section{Challenges}
 
 The previous section described how people support the design and
-implementation of dashboards using both state of the art and state of
-practice methods. We highlight in this section the challenges of isolation
-triggered by such approach, detailing it through two axes, namely evolution
-capacity and integrity, and discuss how separation of concerns and
+implementation of dashboards using a classical development process. In
+this section, we describe the challenge of isolation that undermine
+this process, detailing it through two axes: evolution capacities and
+dashboard integrity. We discuss how separation of concerns and
 software composition could be helpful to support this process.
 
 %% Pour chaque paragraphe, se raccrocher au contexte de la section
@@ -176,83 +176,79 @@ software composition could be helpful to support this process.
 %% composition (ou des deux), et discuter des benefics envisages par
 %% une approche de ce genre.
 
-\textbf{Isolation challenge.}
-Each stakeholder should be able to work in his domain of competence,
-in isolation from the other domains. This main challenge implies that
-each one may work without the irrelevant noise of others contribution,
-focusing on concepts of his own domain, or, in case of a shared concept,
-only on the facet of this concept relevant for the task of this role.
-For example, as a dashboard designer, one may want to define a link
-between the visualization being constructed and some data, but should
-not be requested to be competent as a data manager while working on it.
-Indeed, the relevant informations in a data polishing point of view should
-be handled by a specialist of this domain, but not only this specialist
-would need to reference a specific dataset.
+\textbf{Isolation challenge.}  Each stakeholder should be able to work
+in his domain of expertise, isolated from the other domains. This main
+challenge implies that each one work without the irrelevant noise of
+others' contributions, focusing on concepts of her own domain, or, in
+case of a shared concept, only on the facet of this concept relevant
+for the task of this role.  For example, as a dashboard designer, one
+can define a link between the visualization being constructed and some
+data, but should not be requested to be competent as a data manager
+while working on it.  The relevant information from a data polishing
+point of view are handled by a specialist of this domain, but not only
+this specialist would need to reference a specific dataset.
 % quels sont les avantages a les maintenir séparés ^
 
-\textbf{Evolution capabilities.}
-Data visualization is a growing, fast evolving field
-(6 440 000 Google results for \emph{"data visualization"} in 01/15,
-D3.js offered 133 widgets in 04/14 and 235 in 01/15),
-as well as requirement engineering (RE) is an active research field
-offering new way to capture needs (more than 730 papers published
-since 2014 and referenced by Google Scholar contains
-\emph{"requirement engineering"}, and 640 \emph{"goal model"})
-and data scalability is still an opened scientific lock.
-For those reasons, their respective tool or domain
-specific languages (DSL) used will have to evolve in time.
-A composition-based approach should therefore take this fact
-into consideration to ease the evolution
-capability of the whole composed dashboard design framework.
-Indeed, each of this domains bring unique competences and expertise
-useful to the data visualization design field. Keeping the separation
-of concern allows each stakeholder to perform her dedicated task with
-the state of the art capabilities of her domain.
-Nonetheless, this separation of role specific solutions require to 
-handle the interaction between those partial results,
-which could bridge the gap between the domains and
-manage the high versatility of those research fields.
+\textbf{Evolution capabilities.}  Data visualization is a growing,
+fast evolving field: 6,440,000 Google results for \emph{"data
+  visualization"} on 01/15, D3.js offered 133 widgets on 04/14 and now
+235 on 01/15. \emph{Requirement engineering} (RE) is a very active
+research field offering new way to capture needs: more than 730 papers
+published since 2014 and referenced by Google Scholar contains
+\emph{"requirement engineering"}, and 640 \emph{"goal model"}. In
+addition, data scalability is still an open scientific lock. For these
+reasons, their respective tool or \emph{Domain Specific Languages}
+(DSL) used have to evolve in time.  Exploiting a composition-based
+approach to represent the widgets will support the evolution
+capabilities of the whole design framework. In addition, each of these
+domains bring a unique expertise useful to the data visualization
+design field. Keeping them separated allows each stakeholder to
+perform dedicated tasks with state of the art capabilities of the
+associated domain.  Nonetheless, this separation of role specific
+solutions require to handle the interaction between those partial
+results, bridging the gap between the domains and manage the high
+versatility of those research fields.
 
-\textbf{Integrity.}
-In addition, the separation of concerns has to allow one to contribute
-in her own domain, while being able to check if this evolution is
-consistent locally, meaning inside this domain, even if the other domains
-are in an unstable or incoherent state or if it is not possible to check
-the global consistency at the moment. For example, one as a data manager
-should be allowed to edit a resource measurement unit to optimize the data
-transfer and validate his contribution in the data point of view,
-even if it may have broke the choice of visualizations used in the
-dashboard design domain.
-In order to reach a proper separation of concerns, each domain solution 
-has then to be usable independently from any consideration of interaction
-with the other collaborating domains.
-This point raises a challenge on the interaction of these partial solutions,
-introducing the notion of local and global consistency to handle.
+\textbf{Integrity.} Separation of concerns allows one to contribute to
+the dashboard design process in her own domain. It is then possible to
+check if this work is consistent inside this domain, even if the other
+domains are in an unstable or incoherent state or if it is not
+possible to check the global consistency at the moment. For example, a
+data manager is allowed to edit a resource measurement unit to
+optimize the data transfer and validate her contribution from the data
+point of view, even if it may have broke the choice of visualizations
+used in the dashboard design domain.  In order to support a proper
+separation of concerns, each domain solution has then to be usable
+independently from any considerations of interaction with the other
+collaborating domains.  This point raises a challenge on the
+interaction of these partial solutions, introducing the notion of
+local and global consistency to handle.
 
 %% Ouvrir sur la compo de DSL
-\textbf{Actionable insights: DSL composition.}
-One interesting way to tackle those challenges would be to design a
-DSL for each of the three domains mentioned and then to compose those
-partial results in a overall data visualization solution.
-The state of the art reveals two main ways to manage this composition :\\
-\iitem{i} Fusion/Merge, i.e. the operation to produce one bigger meta
-model from several meta models by identification of a pivot and
-merging from it, and
-then refine the associated concrete syntaxes to produce a global one.\cite{kienzle13}\\
-\iitem{ii} Aggregation, i.e. make enough assumptions about the meta models
-to be able to link them through the transformation of several meta models
-by adding, deleting or editing specific model elements, essentially to align
-two concepts from different domains or to reference an external concept
-in order to delegate part of the responsibilities. \cite{blouin14}\\
-The authors short-term perspective is to work on the integration of
-the DSLs as software services in order to be able to compose languages
-while insuring the same properties as service-oriented architecture
-field.
+\textbf{Actionable insights: DSL composition.}  One interesting way to
+tackle those challenges would be to design a DSL for each of the three
+domains mentioned and then to compose those partial results in a
+overall data visualization solution.
+The state of the art reveals two main ways to manage this composition:\\
+\iitem{i} Merge, \ie the operation to produce one bigger meta model
+from several meta models by identification of a pivot and merging from
+it, and then refine the associated concrete syntaxes to produce a global 
+one~\cite{kienzle13}.\\
+\iitem{ii} Aggregation, \ie make enough assumptions about the
+meta-models to be able to link them through the transformation of
+several meta-models by adding, deleting or editing specific model
+elements, essentially to align two concepts from different domains or
+to reference an external concept
+in order to delegate part of the responsibilities~\cite{blouin14}.
+
+Our short-term perspective is to work on the integration of the DSLs
+as software services in order to be able to compose languages while
+insuring the same properties as service-oriented architecture field.
 
 \section{Conclusions \& Perspectives}
 In this paper, we described the domain of visualization dashboard
 design. This domain crosscuts several research fields, from
-human-computer interactions to big data. We highlighted four
+human-computer interactions to big data. We highlighted three
 challenges in this domain where a software engineering approach based
 on modularity concepts could support it. However, all the challenges
 triggered by this domain are not yet solved from a separation of
