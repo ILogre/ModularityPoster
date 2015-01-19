@@ -3,6 +3,7 @@
 \usepackage{fancyref}
 \usepackage{mdwlist}
 \makecompactlist{myenumerate}{enumerate}
+\usepackage{url}
 \begin{document}
 
 
@@ -91,43 +92,45 @@ composition.
 %\mypar{Process overview}
 \textbf{Process overview.}
 % Qui sont les roles intervenants?
-In order to design and implement such visualization dashboard, there
-is a need to chose visualizations to apply to refined datasets in
-order to achieve some identified final goal. This task is to be
-performed by three roles:
-\begin{myenumerate}
-\item a Requirement Engineer (RE);
-\item a Data Manager (DM);
-\item a Dashboard Designer (DD).
+To design and implement a visualization dashboard, one selects the
+visualizations applied to refined datasets to achieve some identified
+goal. 
+
+This process involves three roles: \begin{myenumerate}
+\item a \emph{Requirement Engineer} (RE);
+\item a \emph{Data Manager} (DM);
+\item a \emph{Dashboard Designer} (DD).
 \end{myenumerate}
 % Quels sont leurs domaines de competences?
-Each role is responsible for several tasks: (i) the RE define what
+Each role is responsible for several tasks: \emph{(i)} the RE defines what
 will be the purpose of the dashboard and audit the resulting dashboard
-according to the initial motivation, (ii) the DM select data to be
-visualize and treat it in order to provide the needed well formatted
-datasets, (iii) the DD chose visualization for each group of data and
+according to the initial motivation, \emph{(ii)} the DM selects data to be
+visualized and treat it to provide the needed well formatted
+datasets, \emph{(iii)} the DD choose visualization for each group of data and
 arrange them spatially into a dashboard.
 % Pourquoi ces competences sont souvent des acteurs differents et pas
 % juste des roles?
-Even if those roles collaborates, \eg the choice of visualization the
-DD has to make depends on the purpose exposed by the RE, they relates
-on distinct domains of expertise and formation, each one bringing is
-own challenges, therefore each role is usually impersonated by a
+These roles needs to collaborate, \eg the choice of visualization the
+DD has to make depends on the purpose exposed by the RE. They rely
+on distinct domains of expertise and formation, each one bringing its
+own challenges.Thus, each role is usually impersonated by a
 dedicated stakeholder.  
 
-\textbf{Designing dashboard}
+\textbf{Designing dashboard.}
 % \begin{enumerate}
 %   Quels sont les outils a dispositions (UML, CTT)
 One could use existing solutions to implement each of the mentioned
 tasks, for example using SQL would be a suitable choice to store and
-refine sensor data, the Interaction Flow Modelling Language
-(IFML)~\cite{ifml} to model the wanted organization of the dashboard and
-temporal logic or Concurrent Tasks Tree (CTT)~\cite{ctt} to define the
-aimed product and succession of action to be performed with it.
+refine sensor data. The \emph{Interaction Flow Modeling
+  Language}~\cite{ifml} models the wanted organization of the
+dashboard, and temporal logic or \emph{Concurrent Tasks Tree}
+(CTT)~\cite{ctt} define the aimed product and the sequence of actions
+to be performed with it.
 % Quels sont les problemes quand on les utilise?
-Those tools were not designed for the visualization field and reveal a
-lack of expressiveness being too generic, as CTT that offers no solution
-about characterization of visualization need.
+Those tools were not designed for the visualization field and suffers
+from their generic approaches by being difficult to use by
+visualization designers. For example CTT does not offer concepts to
+characterize visualization needs.
 % Est-ce qu'on sort certains experts de leur domaine de competences
 % avec ces outils?
 Moreover, there is a lack of interoperability between those tools due
@@ -138,23 +141,25 @@ compromise is needed.
 
 \textbf{Implementing dashboard.}
 % Quels sont les outils a dispositions (Web, bibliotheques)
-To implement a given dashboard, one can use online visualization widget
-libraries, either professional solution as HighChart and AmChart or
-community-based example as D3.JS, and add HTML5 code to structure the
-result.
+To implement a given dashboard, one can use visualization widget
+libraries, either professional solutions such as
+HighChart\footnote{\url{http://www.highcharts.com/}} and
+AmChart\footnote{\url{http://www.amcharts.com/}} or com\-munity-based
+libraries such as D3.JS\footnote{\url{http://d3js.org/}}. Then, one
+will add HTML5/CSS code to structure the result.
 % Quels sont les problemes quand on les utilise?
-However, those widgets does not allows integrability with a lot of data format,
-since the development effort is put on the interaction aspect
-instead of the interoperability.
-Also, the huge amount of available widgets, \eg D3.js offers 235 widgets on
-January 2015, increase the difficulty to choose a suitable visualization,
-% Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
-due to the lack of effort in categorization of those new visualization
-capabilities\cite{ecmfa}.
-Those last two points strengthen the difficulty to cooperate with other domains
-because of the gap between the conceptual role of the RE and the implementation
-role of the DD, and because of the incompatible constraints impose by libraries
-on data format which reduce re-usability.
+However, those widgets do not allow their integration with a lot of
+data format, since the development effort is put on the interaction
+aspect instead of the interoperability. In addition, the huge amount
+of available widgets (\eg D3.js offers 235 widgets on January 2015)
+increase the difficulty to select a suitable visualization. There is 
+%Est-ce qu'on sort certains experts de leur domaine de competences avec ces outils?
+a lack of effort in the categorization of those new visualization
+capabilities\cite{ecmfa}.  These last two points strengthen the
+difficulty to cooperate with other domains, considering the gap
+between the conceptual role of the RE and the implementation role of
+the DD, and because of the incompatible constraints imposed by the chosen
+libraries on data format then reduce reusability.
 
 \section{Challenges}
 
