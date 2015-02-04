@@ -12,3 +12,5 @@ Modularity.graffle/image6.tiff
 *.bbl
 *.blg
 *.dvi
+sigplanconf-template.pdf
+sigplanconf-template.tex
