@@ -1,4 +1,5 @@
-\documentclass{acm_proc_article-sp}
+\documentclass{sigplanconf}
+%\documentclass{acm_proc_article-sp}
 \usepackage{seb}
 \usepackage{fancyref}
 \usepackage{mdwlist}
@@ -6,33 +7,23 @@
 \usepackage{url}
 \begin{document}
 
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\conferenceinfo{MODULARITY '15}{March 16--19, 2015, Fort Collins, Colorado, USA} 
+\copyrightyear{2015}
+\copyrightdata{978-1-nnnn-nnnn-n/yy/mm} 
+\doi{nnnnnnn.nnnnnnn}
+\exclusivelicense 
 
 \title{Composition Challenges for Sensor Data Visualization}
-% \subtitle{}
 
-\numberofauthors{3} \author{
-  % 1st. author
-  \alignauthor Ivan Logre\\
-  \affaddr{Univ. Nice Sophia Antipolis}\\
-  \affaddr{CNRS, I3S, UMR 7271}\\
-  \affaddr{06900 Sophia Antipolis}\\
-  \email{logre@i3s.unice.fr}
-  % 2nd. author
-  \alignauthor S{\'e}bastien Mosser\\
-  \affaddr{Univ. Nice Sophia Antipolis}\\
-  \affaddr{CNRS, I3S, UMR 7271}\\
-  \affaddr{06900 Sophia Antipolis}\\
-  \email{mosser@i3s.unice.fr}
-  % 3rd. author
-  \alignauthor Michel Riveill\\
-  \affaddr{Univ. Nice Sophia Antipolis}\\
-  \affaddr{CNRS, I3S, UMR 7271}\\
-  \affaddr{06900 Sophia Antipolis}\\
-  \email{riveill@i3s.unice.fr} }
-
-\date{06 January 2015}
-
+\authorinfo{Ivan Logre \and S{\'e}bastien Mosser \and Michel Riveill}
+  		   {Univ. Nice Sophia Antipolis\\CNRS, I3S, UMR 7271\\06900 Sophia Antipolis}
+  		   {\emph{lastname}@i3s.unice.fr}
 \maketitle
+
 \begin{abstract}
   %% Problem
   Connected objects and monitoring systems continuously produce
@@ -120,7 +111,7 @@ dedicated stakeholder.
 % \begin{enumerate}
 %   Quels sont les outils a dispositions (UML, CTT)
 One could use existing solutions to implement each of the mentioned
-tasks, for example using SQL would be a suitable choice to store and
+tasks, for example using SQL would be a suitable choice to query and
 refine sensor data. The \emph{Interaction Flow Modeling
   Language}~\cite{ifml} models the wanted organization of the
 dashboard, and temporal logic or \emph{Concurrent Tasks Tree}
