@@ -3,6 +3,7 @@
 \usepackage{seb}
 \usepackage{fancyref}
 \usepackage{mdwlist}
+\usepackage{flushend}
 \makecompactlist{myenumerate}{enumerate}
 \usepackage{url}
 \begin{document}
@@ -11,16 +12,16 @@
 \setlength{\pdfpageheight}{\paperheight}
 \setlength{\pdfpagewidth}{\paperwidth}
 
-\conferenceinfo{MODULARITY '15}{March 16--19, 2015, Fort Collins, Colorado, USA} 
+
+\conferenceinfo{MODULARITY Companion'15}{, March 16--19, 2015, Fort Collins, CO, USA}
 \copyrightyear{2015}
-\copyrightdata{978-1-nnnn-nnnn-n/yy/mm} 
+\copyrightdata{978-1-4503-3283-5/15/03} 
 \doi{nnnnnnn.nnnnnnn}
-\exclusivelicense 
 
 \title{Composition Challenges for Sensor Data Visualization}
 
 \authorinfo{Ivan Logre \and S{\'e}bastien Mosser \and Michel Riveill}
-  		   {Univ. Nice Sophia Antipolis\\CNRS, I3S, UMR 7271\\06900 Sophia Antipolis}
+  		   {Univ. Nice Sophia Antipolis\\CNRS, I3S, UMR 7271\\06900 Sophia Antipolis, France}
   		   {\emph{lastname}@i3s.unice.fr}
 \maketitle
 
@@ -45,7 +46,7 @@
 \category{D.2.8}{Software Engineering}{Data visualization, Software
   composition}[]
 
-\keywords{visualization, sensor, data, composition}
+\keywords{Visualization, sensor, data, composition}
 
 \section{Introduction}
 
@@ -104,10 +105,11 @@ arrange them spatially into a dashboard.
 These roles needs to collaborate, \eg the choice of visualization the
 DD has to make depends on the purpose exposed by the RE. They rely
 on distinct domains of expertise and formation, each one bringing its
-own challenges.Thus, each role is usually impersonated by a
+own challenges and none is optional in order to produce a satisfying
+final product. Thus, each role is usually impersonated by a
 dedicated stakeholder.  
 
-\textbf{Designing dashboard.}
+\mypar{Designing dashboard.}
 % \begin{enumerate}
 %   Quels sont les outils a dispositions (UML, CTT)
 One could use existing solutions to implement each of the mentioned
@@ -130,7 +132,7 @@ the stakeholders to dialogue and converge toward a solution when a
 compromise is needed.
 % \end{enumerate}
 
-\textbf{Implementing dashboard.}
+\mypar{Implementing dashboard.}
 % Quels sont les outils a dispositions (Web, bibliotheques)
 To implement a given dashboard, one can use visualization widget
 libraries, either professional solutions such as
@@ -167,7 +169,7 @@ software composition could be helpful to support this process.
 %% composition (ou des deux), et discuter des benefics envisages par
 %% une approche de ce genre.
 
-\textbf{Isolation challenge.}  Each stakeholder should be able to work
+\mypar{Isolation challenge.}  Each stakeholder should be able to work
 in his domain of expertise, isolated from the other domains. This main
 challenge implies that each one work without the irrelevant noise of
 others' contributions, focusing on concepts of her own domain, or, in
@@ -180,7 +182,7 @@ point of view are handled by a specialist of this domain, but not only
 this specialist would need to reference a specific dataset.
 % quels sont les avantages a les maintenir séparés ^
 
-\textbf{Evolution capabilities.}  Data visualization is a growing,
+\mypar{Evolution capabilities.}  Data visualization is a growing,
 fast evolving field: 6,440,000 Google results for \emph{"data
   visualization"} on 01/15, D3.js offered 133 widgets on 04/14 and now
 235 on 01/15. \emph{Requirement engineering} (RE) is a very active
@@ -200,7 +202,7 @@ solutions require to handle the interaction between those partial
 results, bridging the gap between the domains and manage the high
 versatility of those research fields.
 
-\textbf{Integrity.} Separation of concerns allows one to contribute to
+\mypar{Integrity.} Separation of concerns allows one to contribute to
 the dashboard design process in her own domain. It is then possible to
 check if this work is consistent inside this domain, even if the other
 domains are in an unstable or incoherent state or if it is not
@@ -216,11 +218,11 @@ interaction of these partial solutions, introducing the notion of
 local and global consistency to handle.
 
 %% Ouvrir sur la compo de DSL
-\textbf{Actionable insights: DSL composition.}  One interesting way to
+\mypar{Actionable insights: DSL composition.}  One interesting way to
 tackle those challenges would be to design a DSL for each of the three
 domains mentioned and then to compose those partial results in a
 overall data visualization solution.
-The state of the art reveals two main ways to manage this composition:\\
+The state of the art reveals several ways to manage this composition ~\cite{emerson06}:\\
 \iitem{i} Merge, \ie the operation to produce one bigger meta model
 from several meta models by identification of a pivot and merging from
 it, and then refine the associated concrete syntaxes to produce a global 
@@ -230,11 +232,15 @@ meta-models to be able to link them through the transformation of
 several meta-models by adding, deleting or editing specific model
 elements, essentially to align two concepts from different domains or
 to reference an external concept
-in order to delegate part of the responsibilities~\cite{blouin14}.
-
-Our short-term perspective is to work on the integration of the DSLs
-as software services in order to be able to compose languages while
-insuring the same properties as service-oriented architecture field.
+in order to delegate part of the responsibilities~\cite{blouin14}.\\
+\iitem{iii} Viewpoint unification, \ie let each domain expert works
+with her proper DSL, while composing the abstract syntaxes
+and semantics of each to produce an integrated meta model
+to reason about~\cite{vallecillo10}.\\
+\iitem{iv} Embedding, \ie the specialization of one or several
+concepts of an host meta model through the definition of a guest one,
+tailored to extend the host to a new aspect of the whole system complexity
+while preserving its semantics ~\cite{groenewegen2008webdsl}.
 
 \section{Conclusions \& Perspectives}
 In this paper, we described the domain of visualization dashboard
@@ -243,19 +249,25 @@ human-computer interactions to big data. We highlighted three
 challenges in this domain where a software engineering approach based
 on modularity concepts could support it. However, all the challenges
 triggered by this domain are not yet solved from a separation of
-concerns point of view. In our upcoming works, we plan to focus on
+concerns point of view.
+
+In our upcoming works, we plan to focus on
 defining a formal way to support exchanges between the different roles
-involved in the domain, emphasizing integrity and isolation
-properties.
+involved in the domain by a formal identification of the relations
+between each stakeholder domain and
+through integration of domain specific solutions
+while emphasizing integrity and isolation properties on this composition.
 %% Un petit paragraphe de conclusions/
 
-
+\bibliographystyle{abbrvnat}
+% The bibliography should be embedded for final submission.
+\bibliography{sigproc}
 
 % The following two commands are all you need in the initial runs of
 % your .tex file to produce the bibliography for the citations in your
 % paper.
-\bibliographystyle{abbrv}
-\bibliography{sigproc} % sigproc.bib is the name of the Bibliography in this case
+
+ % sigproc.bib is the name of the Bibliography in this case
 % You must have a proper ".bib" file and remember to run: latex bibtex
 % latex latex to resolve all references
 %
